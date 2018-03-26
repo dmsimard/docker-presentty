@@ -1,7 +1,7 @@
 docker-presentty
 ================
 
-A dockerized version of presentty_.
+A dockerized version of presentty_ for convenience.
 
 See: https://hub.docker.com/r/dmsimard/presentty/
 

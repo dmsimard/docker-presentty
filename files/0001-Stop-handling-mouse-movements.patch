@@ -1,0 +1,31 @@
+From c04103e1d2f9b39b504bf8ba0b05e29dc2f9448e Mon Sep 17 00:00:00 2001
+From: David Moreau Simard <dmsimard@redhat.com>
+Date: Mon, 26 Mar 2018 14:18:36 -0400
+Subject: [PATCH 1/1] Stop handling mouse movements
+
+This otherwise prevents a user from using a mouse to do things like
+text selection.
+
+Co-Authored-By: Jeremy Stanley <fungi@yuggoth.org>
+Co-Authored-By: David Moreau-Simard <dmsimard@redhat.com>
+---
+ presentty/presentty.py | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/presentty/presentty.py b/presentty/presentty.py
+index d54d640..f9ca7f4 100644
+--- a/presentty/presentty.py
++++ b/presentty/presentty.py
+@@ -36,7 +36,8 @@ class Presenter(object):
+         self.palette = palette
+         self.pos = -1
+         self.loop = urwid.MainLoop(self.blank,
+-                                   unhandled_input=self.unhandledInput)
++                                   unhandled_input=self.unhandledInput,
++                                   handle_mouse=False)
+         self.loop.screen.set_terminal_properties(colors=256)
+ 
+         self.server_pipe_in = self.loop.watch_pipe(self.serverData)
+-- 
+2.14.3
+
